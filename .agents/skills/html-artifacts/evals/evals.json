@@ -1,0 +1,29 @@
+{
+  "skill_name": "html-artifacts",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "In a disposable workspace, make a self-contained HTML decision one-pager from these synthetic notes. Option A takes 2 weeks and has limited customization. Option B takes 5 weeks and supports custom workflows. Both are estimates; no budget or approval is known. Compare them fairly for a project lead. It must work offline and on a phone. Do not publish it.",
+      "expected_output": "Writes an actual single HTML file using a comparison grid or table, labels estimates and unknowns, uses no runtime network dependencies or invented approval, and checks desktop/narrow rendering and evidence consistency. Reports the file and actual verification without uploading.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create an offline four-slide HTML presentation from these synthetic pilot facts: 20 participants invited; 12 completed the task; the goal was 16 completions. There is no control group. Include framing, results, limitations, and the proposed next test. Make keyboard navigation work and make all slides print. The only text input is an optional presenter note field; arrows while typing there must not switch slides.",
+      "expected_output": "Shows 12/20 or 60% completion and the four-completion gap, avoids causal claims, implements and exercises accessible slide controls including keyboard behavior in the input, checks narrow/no-JS layouts and all-slide print output, and states limitations honestly.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Make a local-only HTML triage board from these synthetic items: item-1 'Fix export' in Now; item-2 'Improve search' in Next; item-3 'New theme' in Later. Provide keyboard-accessible moves between Now/Next/Later/Cut and a Download JSON button. Move Improve search to Now during testing and verify the downloaded data. No backend, storage, or tracker updates.",
+      "expected_output": "Creates a standalone board with stable IDs, keyboard move controls, explicit ephemeral-state messaging, and real JSON download. Exercises the move, inspects the exported payload for item-2 in Now with all items retained, and does not claim persistence or call a Canvas bridge.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Build a local HTML prompt-tuner demo. Template: 'Summarize {{topic}} for {{audience}}'. Show missing variables. The topic sample is literal text: </script><img src=x onerror=alert(1)>. The audience sample is 'reviewers'. Preview substitutions without running the prompt. Include copy with a fallback and test clipboard denial. Do not access the network or publish anything.",
+      "expected_output": "Keeps the hostile-looking sample literal through safe HTML/data serialization and DOM text rendering, executes neither code nor prompt, displays unresolved variables when missing, exercises preview and denied-clipboard fallback without false Copied feedback, and makes no runtime network requests.",
+      "files": []
+    }
+  ]
+}

@@ -15,6 +15,7 @@ Product Management AI Skills
 | [knowledge-base-curator](.agents/skills/knowledge-base-curator/SKILL.md) | Bootstrap or maintain a source-backed Markdown wiki. |
 | [visualization-critique](.agents/skills/visualization-critique/SKILL.md) | Review charts for accuracy, clarity, accessibility, and evidential limits. |
 | [product-planning-interview](.agents/skills/product-planning-interview/SKILL.md) | Elicit product needs, boundaries, risks, and success criteria before planning. |
+| [html-artifacts](.agents/skills/html-artifacts/SKILL.md) | Build portable HTML reports, comparisons, decks, maps, and local interactive artifacts. |
 
 The skills live in `.agents/skills/` for project discovery. To use them elsewhere, copy the desired skill directory, including its references, into that project's `.agents/skills/` directory. In a compatible client, invoke `/first-principle-thinking` or `/ghost-writer`, or ask for the described task naturally.
 
@@ -39,6 +40,14 @@ wiki/
 ```
 
 Topic pages are created from actual source material, not empty templates. A `sources/` folder is optional and created only when retaining local source copies is authorized. No Obsidian, QMD, database, or pre-existing wiki is needed. The skill preserves sources, links claims to evidence, and avoids duplicate pages on repeated ingestion. Without file-writing access, it returns copyable Markdown instead of claiming it saved a wiki.
+
+### HTML artifacts
+
+`html-artifacts` combines a single-file authoring workflow with a portable catalog of 19 PMX Canvas-inspired primitive types. It maps comparisons, timelines, maps, reports, decks, galleries, and local editors to native HTML/CSS/SVG—not Canvas runtime APIs. No specific branding, CDN, framework, or backend is required.
+
+Example: "Turn these rollout options into an offline HTML decision one-pager with a comparison grid and milestone timeline. Check desktop, mobile, and print layouts. Do not publish it."
+
+The skill includes guidance for evidence integrity, safe text rendering, keyboard interaction, print/no-JavaScript fallbacks, and actual export verification. Browser rendering checks apply to generated artifacts; the bundled evaluation prompts are scenarios to run, not pre-rendered templates or a claim that all primitive types have been browser-tested.
 
 ## Design and checks
 
