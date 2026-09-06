@@ -21,6 +21,28 @@ The skills live in `.agents/skills/` for project discovery. To use them elsewher
 
 Each skill works independently from supplied context. Integrations are optional; none requires a private repository, organization-specific service, or another skill. Examples and evaluation scenarios are synthetic. Keep personal profiles, customer records, and actual business knowledge in an appropriate user-controlled workspace, not in this shared skill collection.
 
+## Agent Plugin
+
+The repository root is also a skills-only [Agent Plugins 1.0.0](https://agent-plugins.org/specification) package named `pmx-skills`. Its [plugin.json](plugin.json) manifest targets the portable standard, not an Amp-specific TypeScript plugin API.
+
+```text
+plugin.json
+skills -> .agents/skills
+.agents/skills/
+└── <skill-name>/
+    ├── SKILL.md
+    ├── evals/
+    └── references/  (where needed)
+```
+
+Load the **repository root** through an Agent Plugins-compatible client's local-directory plugin installation flow. The client must support the skills component type; installation commands, namespacing, and enablement are client-specific and not defined by the standard. Do not enable both the plugin and separately installed copies of the same skills unless the client handles duplicates.
+
+The `skills` directory is a relative symbolic link to the existing `.agents/skills` source of truth. All targets and bundled resources stay inside the plugin root, as required by the specification. Edit skills in `.agents/skills/`; no generation or synchronization step is needed, and existing project skill discovery remains unchanged.
+
+Clone or copy the **complete package**, including `.agents/skills`, with symlinks preserved. On systems or packaging tools without symlink support, materialize `skills/` as a real copy of `.agents/skills/` in a separate distribution directory, with `plugin.json` at that directory's root. Do not replace the tracked link with a second maintained copy. Copying only the manifest and the link leaves an incomplete package.
+
+This plugin has no MCP servers, hooks, executable entry point, credentials, or client extensions. The orb setup script is repository tooling, not a plugin startup hook. Loading the plugin does not authorize publishing files or accessing private accounts.
+
 ### Examples
 
 - **First principles:** "We think we need a new onboarding tool. Challenge that assumption and suggest the smallest experiment that would tell us what to do."
