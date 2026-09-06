@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo 'Checking Python 3 for skill validation...'
+if ! command -v python3 >/dev/null 2>&1; then
+  echo 'Installing Python 3...'
+  sudo -n apt-get update
+  sudo -n env DEBIAN_FRONTEND=noninteractive apt-get install -y python3
+fi
+
+python3 --version
+echo "Orb setup complete (${SECONDS}s). No external dependencies or services required."

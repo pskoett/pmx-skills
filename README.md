@@ -23,3 +23,17 @@ The skills live in `.agents/skills/` for project discovery. To use them elsewher
 Created using Anthropic's [skill-creator guidance](https://github.com/anthropics/skills/tree/main/skills/skill-creator). `ghost-writer` generalizes an existing personal ghost skill's source-grounding, register selection, drafting, and editing workflow; its personal corpus and preset persona are intentionally excluded.
 
 Each skill includes representative prompts and expected outcomes in `evals/evals.json`. These are regression scenarios for future skill runs, not a claim of benchmarked voice quality. Voice fidelity requires feedback from the person whose writing is being modeled.
+
+## Orb setup
+
+Amp runs the executable `.agents/setup` when preparing an orb. It ensures Python 3 is available for lightweight validation, installing it only if missing. The skills themselves require no runtime dependencies, services, secrets, or resume hook.
+
+To check the evaluation JSON syntax from the repository root:
+
+```bash
+for file in .agents/skills/*/evals/evals.json; do
+  python3 -m json.tool "$file" > /dev/null || exit 1
+done
+```
+
+This checks JSON syntax, not skill behavior or writing quality.
