@@ -1,0 +1,23 @@
+{
+  "skill_name": "product-planning-interview",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Help scope saved searches for operations analysts. It is web-only, personal rather than shared, must pilot this quarter, and email notifications are out of scope. Start the interview.",
+      "expected_output": "Reuses all supplied constraints instead of asking for them again, briefly reflects the current understanding, and asks two or three high-impact questions about the user problem, evidence, success criteria, or key risk. It does not begin implementation.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a product brief for an AI meeting-summary feature. Leadership likes the idea, but we have no user research, target segment, privacy decision, budget, or launch date.",
+      "expected_output": "Does not fabricate demand or constraints. Identifies the missing evidence and high-risk privacy question, asks no more than three focused questions in the first round, and treats any brief as provisional with a bounded discovery or validation step.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Continue our planning interview. We already established that the users are volunteer coordinators, the goal is to reduce unfilled shifts, SMS is out of scope, and success means 20% fewer unfilled shifts after six weeks. We can tolerate a manual pilot. Give me the brief now and stop interviewing.",
+      "expected_output": "Stops asking questions, preserves the supplied audience, boundary, metric, time horizon, and manual-pilot risk posture, then produces a concise brief. Clearly labels unresolved evidence or assumptions and suggests a next decision without auto-implementing.",
+      "files": []
+    }
+  ]
+}

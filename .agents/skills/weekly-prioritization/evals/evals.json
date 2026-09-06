@@ -1,0 +1,23 @@
+{
+  "skill_name": "weekly-prioritization",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Plan this week from these notes only. We have 8 person-days available. A contractual reliability fix due Friday needs 5 days and has no OKR link. Onboarding research needs 3 days and addresses our low-confidence activation goal. A new dashboard needs 4 days and sales wants it now, but has supplied no customer evidence. Recommend priorities; do not change any tasks.",
+      "expected_output": "Protects the contractual fix, fits the plan within 8 days, evaluates research against the underserved goal, and identifies what must be deferred or displaced. Does not discard required work for lacking an OKR link, invent sales evidence, or modify a tracker.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Give me a priority review. The board export is six weeks old, says three initiatives are active, and has no owners. This week's note says one may be stopped. I cannot connect any tools right now.",
+      "expected_output": "Offers a provisional review without requiring integrations, labels stale and conflicting evidence, does not treat the old export as current truth, and asks for the few updates needed for reliable decisions.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We shipped all ten planned tasks, but retention is flat. There are 20 complaints in a single support thread from one account. Should we stop everything else and build what they ask for? Give a concise weekly priority recommendation.",
+      "expected_output": "Separates shipped output from retention impact, recognizes one account rather than 20 independent customers, and recommends proportionate investigation and explicit tradeoffs rather than an automatic all-team reprioritization.",
+      "files": []
+    }
+  ]
+}

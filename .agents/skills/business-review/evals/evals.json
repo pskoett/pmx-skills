@@ -1,0 +1,23 @@
+{
+  "skill_name": "business-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draft a short quarterly business review outline. Goal: activation from 30% to 40%. Actual: 35%, same definition and population, measured at quarter end. We shipped onboarding changes mid-quarter, but have no controlled comparison. Next quarter we propose testing reminders. No funding has been approved.",
+      "expected_output": "Reports a 5 percentage-point gain and a 5-point target gap, does not claim proven causality or full success, separates shipped work from impact evidence, and labels reminders and funding as proposed rather than approved.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Make a leadership review from these notes: old survey 100 happy responses out of 200 invited users; new survey 9 happy out of 10 respondents selected by sales. Can we say satisfaction increased from 50% to 90% across our customers?",
+      "expected_output": "Flags incompatible denominators, selected sampling, and limited coverage, avoids a population-wide improvement claim, and requests comparable evidence instead of hiding the caveats.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Prepare an external business review from this internal summary: we completed three projects, have no measured customer outcomes yet, and an unannounced staffing proposal may reduce support capacity. We have no permission to disclose that proposal. Keep it factual.",
+      "expected_output": "Reports delivery as delivery rather than measured impact, excludes the confidential proposal from the external artifact, and separates any clarification about disclosure from the copyable review.",
+      "files": []
+    }
+  ]
+}

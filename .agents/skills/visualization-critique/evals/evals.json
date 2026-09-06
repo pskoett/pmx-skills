@@ -1,0 +1,23 @@
+{
+  "skill_name": "visualization-critique",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review this described chart: a 3D bar chart compares defect rates of 4.8% and 5.1%, starts the y-axis at 4.7%, and concludes that a new training program caused the increase. Red and green identify the two factories.",
+      "expected_output": "Flags the exaggerated truncated bar scale, perspective distortion, color-only encoding, and unsupported causal claim. Recommends concrete alternatives such as a zero-based bar or clearly labeled dot plot, flat marks, direct labels or non-color cues, and appropriately cautious language.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Critique our customer-retention dashboard. I have not shared an image, metric definitions, audience, or underlying data.",
+      "expected_output": "Does not invent dashboard defects or data. Asks a small number of focused questions or requests the artifact and key definitions, while offering a bounded checklist covering integrity, task fit, labels, accessibility, uncertainty, and evidential limits.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "A mobile dashboard overlays twelve monthly lines, repeats a legend on every card, has overlapping labels, and shows forecast lines without intervals. Suggest the three highest-value improvements for executives comparing regions.",
+      "expected_output": "Prioritizes a comparison-friendly design such as shared-scale small multiples, direct or selective labeling with redundant legends removed, and explicit forecast uncertainty. Accounts for mobile legibility and explains tradeoffs rather than only prescribing cosmetic changes.",
+      "files": []
+    }
+  ]
+}

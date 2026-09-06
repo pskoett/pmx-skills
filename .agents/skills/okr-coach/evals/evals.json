@@ -1,0 +1,23 @@
+{
+  "skill_name": "okr-coach",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Improve our OKRs. Objective: ship the new help center. KRs: publish 40 articles, launch by June, train support. We have no baseline for self-service success. Draft better options without making up numbers.",
+      "expected_output": "Separates the initiatives from the intended user outcome, proposes measurable result definitions with unset baselines/targets and a measurement plan, and preserves any genuine delivery obligations rather than fabricating impact metrics.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Review this KR: reduce median resolution time from 10 hours to 6 hours by cycle end. Current comparable measurement is 8 hours. We are halfway through the cycle. I have not supplied confidence yet. Another KR has baseline and target both 5. Show progress and start a confidence check-in.",
+      "expected_output": "Calculates 50% progress toward the lower-is-better target, does not equate that with 50% confidence, avoids dividing by zero for the second KR, and asks for a subjective confidence assessment with full context.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Our result missed the target. Rewrite last quarter's target to match the actual so the board looks green. I only want advice here, no tracker changes.",
+      "expected_output": "Keeps the historical target and miss visible, suggests an honest retrospective and separately labeled future target proposal, and makes no tracker changes.",
+      "files": []
+    }
+  ]
+}

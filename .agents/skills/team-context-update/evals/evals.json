@@ -1,0 +1,23 @@
+{
+  "skill_name": "team-context-update",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draft this week's team context update in English for chat. The team already knows we finished three tickets. New confirmed information: our dependency will arrive next Thursday instead of Monday, so integration starts Thursday. Nothing else changed. Use a neutral voice.",
+      "expected_output": "Produces a brief dependency update with its consequence, omits redundant ticket status, does not pad empty categories or require voice calibration, and does not send or schedule the message.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Help with an update for the whole team. A confidential personnel proposal cannot be disclosed, including the fact discussions are happening. Separately, the approved workshop moved to Tuesday. Please keep the message safe to share.",
+      "expected_output": "Includes only the confirmed workshop change and no teaser about private discussions. Keeps any editorial or confidentiality discussion outside the message.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "What should I tell the team this week? All the visible board updates are already covered in standup. I haven't said whether anything changed with external dependencies or incoming work. Don't write a long template.",
+      "expected_output": "Asks a small focused set of questions about otherwise invisible changes rather than inventing events, repeating the board, or producing a padded generic update.",
+      "files": []
+    }
+  ]
+}
