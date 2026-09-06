@@ -41,7 +41,7 @@ The `skills` directory is a relative symbolic link to the existing `.agents/skil
 
 Clone or copy the **complete package**, including `.agents/skills`, with symlinks preserved. On systems or packaging tools without symlink support, materialize `skills/` as a real copy of `.agents/skills/` in a separate distribution directory, with `plugin.json` at that directory's root. Do not replace the tracked link with a second maintained copy. Copying only the manifest and the link leaves an incomplete package.
 
-This plugin has no MCP servers, hooks, executable entry point, credentials, or client extensions. The orb setup script is repository tooling, not a plugin startup hook. Loading the plugin does not authorize publishing files or accessing private accounts.
+This plugin has no MCP servers, hooks, executable entry point, credentials, or client extensions. Loading the plugin does not authorize publishing files or accessing private accounts.
 
 ### Examples
 
@@ -78,10 +78,6 @@ Created using Anthropic's [skill-creator guidance](https://github.com/anthropics
 Each skill includes representative prompts and expected outcomes in `evals/evals.json`. These are regression scenarios for future skill runs, not a claim of benchmarked voice quality. Voice fidelity requires feedback from the person whose writing is being modeled.
 
 Run file-writing evaluation scenarios only in disposable workspaces. For scenarios describing an existing wiki, provide synthetic index/topic/source fixtures matching the prompt before running the skill. Never use the skills repository or real private notes as an evaluation destination.
-
-## Orb setup
-
-Amp runs the executable `.agents/setup` when preparing an orb. It ensures Python 3 is available for lightweight validation, installing it only if missing. The skills themselves require no runtime dependencies, services, secrets, or resume hook.
 
 To check the evaluation JSON syntax from the repository root:
 
