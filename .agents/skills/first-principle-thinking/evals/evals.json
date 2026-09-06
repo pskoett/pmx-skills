@@ -1,0 +1,23 @@
+{
+  "skill_name": "first-principle-thinking",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our activation rate fell from 40% to 30%. Sales says we need an onboarding chatbot because competitors have one. We have two engineers for two weeks. Think from first principles and recommend what to do.",
+      "expected_output": "Separates the reported metric from the unproven chatbot diagnosis, asks about comparable cohorts and the activation definition, considers simpler alternatives, and recommends a bounded test with success and stop conditions rather than inventing causal evidence.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Security review is slowing us down. Our contract requires human approval before releasing customer data exports. Rethink this from first principles: can we just remove the approval step?",
+      "expected_output": "Treats the contractual obligation as binding, examines review waiting time versus work time, and offers compliant improvements or an authorized contract-change route rather than bypassing approval.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We process 600 requests a day at 4 minutes each. Six people each have 5 hours available. Management thinks better motivation will clear the daily queue. Assume these numbers are accurate and use first principles to give a concise recommendation.",
+      "expected_output": "Calculates demand of 2400 minutes versus 1800 available minutes, a deficit of 600 minutes or 150 requests daily. Identifies capacity or handling time as a constraint, compares feasible interventions, and does not claim motivation alone removes the arithmetic deficit.",
+      "files": []
+    }
+  ]
+}

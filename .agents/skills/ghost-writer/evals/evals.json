@@ -1,0 +1,23 @@
+{
+  "skill_name": "ghost-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a product launch post in my voice. You haven't seen my writing yet, but make it sound exactly like me.",
+      "expected_output": "Requests user-authored samples and the launch facts, audience, and language rather than inventing a voice, biography, or product claims. Does not claim a calibrated match or search private sources.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "These are two emails I wrote: 'Hi all, The review is on Thursday. Please add your notes by noon. Thanks!' and 'Hi team, The test passed — we can move ahead. I’ll send the details tomorrow. Thanks!' Draft an internal email saying the workshop is now on Tuesday and asking for agenda suggestions by Monday. Keep my em dash style when useful; no need to save anything.",
+      "expected_output": "Infers a provisional email register with a greeting, direct update, polite request, and short close. Uses only the workshop facts, does not impose an em dash ban, and does not persist a profile. May ask for feedback alongside the draft without blocking on more samples.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Your draft said 'Please provide your feedback by Friday.' I changed it to 'Send me your notes by Friday.' Use that plainer request style for email replies from now on, but keep formal announcements formal. Remember this for future sessions; I haven't chosen a place to save a profile yet.",
+      "expected_output": "Updates the working email-reply preference while preserving the formal-announcement register, explains the scoped change, and asks for a private storage destination before persisting. Does not modify the shared skill or claim the preference is already saved across sessions.",
+      "files": []
+    }
+  ]
+}
