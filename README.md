@@ -16,10 +16,11 @@ Product Management AI Skills
 | [visualization-critique](.agents/skills/visualization-critique/SKILL.md) | Review charts for accuracy, clarity, accessibility, and evidential limits. |
 | [product-planning-interview](.agents/skills/product-planning-interview/SKILL.md) | Elicit product needs, boundaries, risks, and success criteria before planning. |
 | [html-artifacts](.agents/skills/html-artifacts/SKILL.md) | Build portable HTML reports, comparisons, decks, maps, and local interactive artifacts. |
+| [pmx-canvas](.agents/skills/pmx-canvas/SKILL.md) | Operate a PMX Canvas workbench through MCP, HTTP, or CLI, with persistent nodes, edges, and context pins. |
 
 The skills live in `.agents/skills/` for project discovery. To use them elsewhere, copy the desired skill directory, including its references, into that project's `.agents/skills/` directory. In a compatible client, invoke `/first-principle-thinking` or `/ghost-writer`, or ask for the described task naturally.
 
-Each skill works independently from supplied context. Integrations are optional; none requires a private repository, organization-specific service, or another skill. Examples and evaluation scenarios are synthetic. Keep personal profiles, customer records, and actual business knowledge in an appropriate user-controlled workspace, not in this shared skill collection.
+The generic workflow skills work independently from supplied context with optional integrations. `pmx-canvas` is a runtime-specific exception: it requires a compatible PMX Canvas installation. No skill requires a private repository or organization-specific service. Examples and evaluation scenarios are synthetic. Keep personal profiles, customer records, and actual business knowledge in an appropriate user-controlled workspace, not in this shared skill collection.
 
 ## Agent Plugin
 
@@ -71,11 +72,21 @@ Example: "Turn these rollout options into an offline HTML decision one-pager wit
 
 The skill includes guidance for evidence integrity, safe text rendering, keyboard interaction, print/no-JavaScript fallbacks, and actual export verification. Browser rendering checks apply to generated artifacts; the bundled evaluation prompts are scenarios to run, not pre-rendered templates or a claim that all primitive types have been browser-tested.
 
+### PMX Canvas
+
+`pmx-canvas` is imported from the upstream product with its complete reference set and evaluation fixtures. It covers persistent spatial boards, workspace identity checks, nodes and edges, context pins, live schemas, sessions, and human steering. Use `html-artifacts` for standalone HTML files; use `pmx-canvas` when working in the actual Canvas workbench.
+
+The skill does not install or start the runtime or configure MCP automatically. Consult its [installation reference](.agents/skills/pmx-canvas/references/installing-pmx-canvas.md) when needed, and check the installed runtime's version and live schemas before using version-specific commands. Run runtime evaluations only against a disposable Canvas workspace.
+
+The [upstream record](.agents/skills/pmx-canvas/UPSTREAM.md) identifies the imported revision and local adaptations. The original [MIT license](.agents/skills/pmx-canvas/LICENSE) is bundled with the skill so its required attribution survives copying. Public project references and copyright attribution are retained; personal profiles and employer details are not imported.
+
 ## Design and checks
 
 Created using Anthropic's [skill-creator guidance](https://github.com/anthropics/skills/tree/main/skills/skill-creator). `ghost-writer` generalizes an existing personal ghost skill's source-grounding, register selection, drafting, and editing workflow; its personal corpus and preset persona are intentionally excluded.
 
 Each skill includes representative prompts and expected outcomes in `evals/evals.json`. These are regression scenarios for future skill runs, not a claim of benchmarked voice quality. Voice fidelity requires feedback from the person whose writing is being modeled.
+
+Feedback triage includes a [runnable synthetic source double and behavioral run guide](.agents/skills/feedback-triage/evals/README.md) for pagination, full-context reads, access failures, and supplied-only/no-tool boundaries. It runs through Python and records call traces; it does not connect real accounts or test an MCP transport. Canvas's installation reference describes its separate live-runtime smoke check. Neither replaces running the remaining skill scenarios in representative host environments.
 
 Run file-writing evaluation scenarios only in disposable workspaces. For scenarios describing an existing wiki, provide synthetic index/topic/source fixtures matching the prompt before running the skill. Never use the skills repository or real private notes as an evaluation destination.
 
@@ -88,3 +99,9 @@ done
 ```
 
 This checks JSON syntax, not skill behavior or writing quality.
+
+## License
+
+The original collection is licensed under [MIT](LICENSE). The vendored
+`pmx-canvas` skill retains its [upstream MIT notice](.agents/skills/pmx-canvas/LICENSE).
+Preserve applicable notices when redistributing the collection or copying skills.

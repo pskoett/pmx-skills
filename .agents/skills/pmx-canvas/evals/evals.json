@@ -1,0 +1,491 @@
+{
+  "skill_name": "pmx-canvas",
+  "evals": [
+    {
+      "id": 1,
+      "name": "investigation-board",
+      "prompt": "I'm debugging a memory leak in our Node.js API. The /api/users endpoint is leaking memory on every request. I found a suspicious closure in evals/fixtures/investigation-board/src/handlers/users.ts that captures the entire request object, and the heap snapshot shows growing EventEmitter listeners. Can you set up an investigation board on the canvas so I can see the full picture?",
+      "expected_output": "Creates multiple nodes (bug description, code file, heap findings, hypothesis) connected with edges, arranged in a tree layout. Uses appropriate node types (markdown for findings, file for source, status for investigation progress).",
+      "files": [
+        "evals/fixtures/investigation-board/src/handlers/users.ts"
+      ],
+      "assertions": [
+        {
+          "name": "creates-multiple-nodes",
+          "description": "Creates at least 3 nodes representing different aspects of the investigation",
+          "type": "output_check"
+        },
+        {
+          "name": "uses-edges",
+          "description": "Connects nodes with labeled edges showing relationships between evidence",
+          "type": "output_check"
+        },
+        {
+          "name": "uses-tree-or-arrange",
+          "description": "Arranges the nodes using tree layout or explicit positioning for readability",
+          "type": "output_check"
+        },
+        {
+          "name": "uses-appropriate-types",
+          "description": "Uses file nodes for source code and markdown/status for findings rather than all markdown",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "architecture-diagram",
+      "prompt": "We're building a microservices backend with these services: API Gateway (Express, port 3000), Auth Service (JWT + OAuth2, port 3001), User Service (CRUD, port 3002), PostgreSQL (port 5432), and Redis (caching, port 6379). The API Gateway routes to Auth and User services, both Auth and User read/write to PostgreSQL, and User Service uses Redis for caching. Can you visualize this architecture on the canvas?",
+      "expected_output": "Creates nodes for each service with relevant details, connects them with flow/depends-on edges with descriptive labels, groups related services, and arranges in a readable layout.",
+      "assertions": [
+        {
+          "name": "all-services-present",
+          "description": "Creates nodes for all 5 services/datastores mentioned",
+          "type": "output_check"
+        },
+        {
+          "name": "correct-connections",
+          "description": "Creates edges matching the described relationships (Gateway->Auth, Gateway->User, Auth->PG, User->PG, User->Redis)",
+          "type": "output_check"
+        },
+        {
+          "name": "edge-labels",
+          "description": "Uses descriptive edge labels (not bare unlabeled edges)",
+          "type": "output_check"
+        },
+        {
+          "name": "layout-applied",
+          "description": "Applies auto-arrange or uses explicit positioning for readable layout",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "task-plan-tracking",
+      "prompt": "I need to implement a new payment feature. Here's the plan: 1) Define payment schema (done), 2) Build Stripe integration (in progress), 3) Create payment API routes (blocked by #2), 4) Add webhook handlers (blocked by #3), 5) Write integration tests (blocked by #4), 6) Update API docs (can start anytime). Show this on the canvas as a task board with dependencies.",
+      "expected_output": "Creates status nodes for each task with appropriate colors (green=done, yellow=in-progress, red=blocked, blue=ready), connects with depends-on edges, and arranges to show dependency flow.",
+      "assertions": [
+        {
+          "name": "six-task-nodes",
+          "description": "Creates exactly 6 task nodes, one for each task",
+          "type": "output_check"
+        },
+        {
+          "name": "semantic-colors",
+          "description": "Uses green for done, yellow for in-progress, red for blocked tasks",
+          "type": "output_check"
+        },
+        {
+          "name": "dependency-edges",
+          "description": "Creates depends-on edges matching the described blocking relationships",
+          "type": "output_check"
+        },
+        {
+          "name": "status-node-type",
+          "description": "Uses status node type (not markdown) for task items",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "read-pinned-context",
+      "prompt": "I've pinned some nodes on the canvas that I want you to look at. Can you read what I've pinned and summarize what you think I'm focusing on?",
+      "expected_output": "Reads canvas://pinned-context resource, summarizes the pinned nodes' content, identifies spatial neighborhoods, and explains what the human appears to be focusing on based on the pinned context and nearby nodes.",
+      "assertions": [
+        {
+          "name": "reads-pinned-context",
+          "description": "Reads the curated pin set via canvas://pinned-context \u2014 or the host-equivalent (canvas_ax_state / the HTTP pinned-context endpoint) where a direct resource tool is unavailable \u2014 not just canvas_query action:layout",
+          "type": "output_check"
+        },
+        {
+          "name": "summarizes-content",
+          "description": "Provides a meaningful summary of what the pinned nodes contain",
+          "type": "output_check"
+        },
+        {
+          "name": "interprets-intent",
+          "description": "Makes an interpretation of what the human is focusing on based on pinned context",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "code-exploration-files",
+      "prompt": "I'm trying to understand how the authentication flow works in this project. Can you put the relevant auth files on the canvas so I can see how they connect? The main files are evals/fixtures/code-exploration/src/auth/login.ts, evals/fixtures/code-exploration/src/auth/middleware.ts, evals/fixtures/code-exploration/src/auth/jwt.ts, and evals/fixtures/code-exploration/src/routes/auth.ts.",
+      "expected_output": "Creates file nodes for each mentioned file (content auto-loads), relies on code graph to auto-detect import dependencies, groups auth files together, and reads canvas://code-graph for dependency analysis.",
+      "files": [
+        "evals/fixtures/code-exploration/src/auth/jwt.ts",
+        "evals/fixtures/code-exploration/src/auth/login.ts",
+        "evals/fixtures/code-exploration/src/auth/middleware.ts",
+        "evals/fixtures/code-exploration/src/routes/auth.ts"
+      ],
+      "assertions": [
+        {
+          "name": "uses-file-nodes",
+          "description": "Creates file type nodes (not markdown with pasted code) for source files",
+          "type": "output_check"
+        },
+        {
+          "name": "all-files-added",
+          "description": "Adds all 4 mentioned files to the canvas",
+          "type": "output_check"
+        },
+        {
+          "name": "groups-files",
+          "description": "Groups the auth files together in a canvas group",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "status-dashboard-updates",
+      "prompt": "I'm running a deployment pipeline. Create a dashboard on the canvas showing: Build (passing), Unit Tests (running), Integration Tests (queued), Deploy to Staging (queued). Then update it - unit tests just passed and integration tests are now running.",
+      "expected_output": "Creates status nodes with semantic colors, arranges as grid dashboard, then updates nodes in place using canvas_node action:update (not delete+recreate) to reflect new state.",
+      "assertions": [
+        {
+          "name": "initial-dashboard",
+          "description": "Creates 4 status nodes with appropriate initial colors",
+          "type": "output_check"
+        },
+        {
+          "name": "updates-in-place",
+          "description": "Uses canvas_node action:update to change status (not remove+add)",
+          "type": "output_check"
+        },
+        {
+          "name": "grid-layout",
+          "description": "Arranges nodes in grid layout for dashboard view",
+          "type": "output_check"
+        },
+        {
+          "name": "color-transitions",
+          "description": "Updates colors to reflect new state (unit tests -> green, integration -> yellow)",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "snapshot-before-changes",
+      "prompt": "I want to reorganize the canvas to explore a different approach, but I don't want to lose what's there now. Can you save the current state, clear it, and set up a fresh workspace for the new approach? If it doesn't work out I want to go back.",
+      "expected_output": "Takes a named snapshot of current state, then clears the canvas. Mentions that canvas_snapshot { action: \"restore\" } can bring back the old state. Does NOT just clear without snapshotting.",
+      "assertions": [
+        {
+          "name": "takes-snapshot",
+          "description": "Saves a snapshot with canvas_snapshot before clearing",
+          "type": "output_check"
+        },
+        {
+          "name": "clears-after-snapshot",
+          "description": "Clears the canvas after (not before) saving the snapshot",
+          "type": "output_check"
+        },
+        {
+          "name": "mentions-restore",
+          "description": "Tells the user how to restore (canvas_snapshot action restore) if they want to go back",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "workspace-identity-preflight",
+      "prompt": "Attach to the running PMX canvas and add a status node for our deploy. There's already a daemon on port 4313.",
+      "expected_output": "Before mutating, reads GET /health (or serve status) and confirms the returned workspace matches the intended workspace root; refuses to mutate a mismatched/stale listener and starts an isolated server on an explicit --port instead.",
+      "assertions": [
+        {
+          "name": "reads-health",
+          "description": "Reads /health or serve status before any mutation",
+          "type": "output_check"
+        },
+        {
+          "name": "checks-workspace",
+          "description": "Compares the returned workspace to the intended workspace root",
+          "type": "output_check"
+        },
+        {
+          "name": "handles-mismatch",
+          "description": "On workspace mismatch or responsive+pidRunning:false, does NOT mutate; isolates via explicit --port and re-checks /health",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "current-composite-routing",
+      "prompt": "Create a markdown note, a bar chart, and an Excalidraw diagram on the canvas.",
+      "expected_output": "Uses current composites: canvas_node {action:add} for markdown, canvas_render {action:add-graph} for the chart, canvas_app {action:diagram} for Excalidraw. Avoids removed single-purpose tools (canvas_add_node/canvas_add_diagram/canvas_build_web_artifact/canvas_open_mcp_app).",
+      "assertions": [
+        {
+          "name": "uses-canvas-node",
+          "description": "Creates the markdown node via canvas_node {action:add}",
+          "type": "output_check"
+        },
+        {
+          "name": "uses-canvas-render",
+          "description": "Creates the chart via canvas_render {action:add-graph}",
+          "type": "output_check"
+        },
+        {
+          "name": "uses-canvas-app",
+          "description": "Creates the Excalidraw diagram via canvas_app {action:diagram}",
+          "type": "output_check"
+        },
+        {
+          "name": "avoids-deprecated",
+          "description": "Does not call removed standalones (canvas_add_node/canvas_add_diagram/etc.)",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "existing-board-extension",
+      "prompt": "Add two more findings to the investigation board that's already on the canvas.",
+      "expected_output": "Searches the existing board first, snapshots before extending, adds new nodes without duplicating existing titles, and validates the final layout for collisions.",
+      "assertions": [
+        {
+          "name": "searches-first",
+          "description": "Searches existing nodes (canvas_query {action:search}) before adding",
+          "type": "output_check"
+        },
+        {
+          "name": "snapshots-before",
+          "description": "Snapshots before extending the board",
+          "type": "output_check"
+        },
+        {
+          "name": "no-duplicates",
+          "description": "Adds new nodes without duplicating existing node titles",
+          "type": "output_check"
+        },
+        {
+          "name": "validates-layout",
+          "description": "Runs canvas_query {action:validate} (or arrange+validate) on the result",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "context-pin-workflow",
+      "prompt": "Pin the auth design node so I (the agent) keep it in context, then confirm it's pinned.",
+      "expected_output": "Pins via a verified path (canvas_pin_nodes, the CLI pin, or browser/right-click 'Pin as context'), then reads canvas://pinned-context to confirm; does not claim a broken UI action succeeded.",
+      "assertions": [
+        {
+          "name": "pins-via-verified-path",
+          "description": "Pins via canvas_pin_nodes / CLI pin / 'Pin as context' \u2014 not an unverified action",
+          "type": "output_check"
+        },
+        {
+          "name": "reads-pinned-context",
+          "description": "Reads canvas://pinned-context (or canvas_ax_state) to confirm the pin",
+          "type": "output_check"
+        },
+        {
+          "name": "confirms-count",
+          "description": "Confirms the pin is reflected (context count / pinned set) rather than assuming success",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "status-node-cleanup",
+      "prompt": "Remove the obsolete 'Deploy: pending' status node from the board.",
+      "expected_output": "Removes the status node via canvas_node {action:remove} (status nodes are removable like any other type) and verifies removal; undo remains available.",
+      "assertions": [
+        {
+          "name": "removes-status-node",
+          "description": "Removes the status node via canvas_node {action:remove}",
+          "type": "output_check"
+        },
+        {
+          "name": "verifies-removal",
+          "description": "Verifies the node is gone from the layout",
+          "type": "output_check"
+        },
+        {
+          "name": "preserves-undo",
+          "description": "Notes/relies on undo (canvas_history) remaining available",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "ax-html-control-surface",
+      "prompt": "Build an AX control surface as an HTML node with a button that creates a work item and a button that steers me.",
+      "expected_output": "Creates an opted-in html node (axCapabilities.enabled) using the blessed recipe: awaits window.PMX_AX.emit, reflects live state via pmx-ax-update, avoids sandbox-blocked localStorage, and labels the steer button as queued for the next turn (not immediate wake).",
+      "assertions": [
+        {
+          "name": "opts-in-ax",
+          "description": "Creates the html node with axCapabilities.enabled = true",
+          "type": "output_check"
+        },
+        {
+          "name": "awaits-emit",
+          "description": "Uses window.PMX_AX.emit with await (not fire-and-forget)",
+          "type": "output_check"
+        },
+        {
+          "name": "sandbox-safe",
+          "description": "Avoids localStorage/sessionStorage/cookies in the sandboxed iframe",
+          "type": "output_check"
+        },
+        {
+          "name": "labels-steer-queued",
+          "description": "Labels steering as queued for the next turn, not immediate agent wake",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "ax-delivery-lifecycle",
+      "prompt": "There are pending steering messages from the board. Pick them up and act on them.",
+      "expected_output": "Reads compact context (newest-first pendingSteering + totalPending/omittedPending) and/or claims via canvas_ax_delivery {action:claim}; acts, then marks delivered. Understands direct delivery stays FIFO oldest-first.",
+      "assertions": [
+        {
+          "name": "reads-newest-first",
+          "description": "Uses compact context (newest-first + counts) or canvas_ax_delivery claim to find fresh steering",
+          "type": "output_check"
+        },
+        {
+          "name": "acts-then-marks",
+          "description": "Acts on the steering then marks it delivered (canvas_ax_delivery {action:mark})",
+          "type": "output_check"
+        },
+        {
+          "name": "understands-fifo",
+          "description": "Recognizes the direct delivery queue is FIFO oldest-first, distinct from compact context",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "final-cleanup-and-validate",
+      "prompt": "We're done with the test board. Clean up the temporary nodes and leave the canvas as we found it.",
+      "expected_output": "Removes retry/test fixtures, runs canvas_query {action:validate} to confirm no accidental collisions/dangling edges, and restores the baseline snapshot.",
+      "assertions": [
+        {
+          "name": "removes-fixtures",
+          "description": "Removes the temporary/retry fixture nodes",
+          "type": "output_check"
+        },
+        {
+          "name": "validates-final",
+          "description": "Validates the final layout (canvas_query {action:validate})",
+          "type": "output_check"
+        },
+        {
+          "name": "restores-baseline",
+          "description": "Restores the baseline snapshot to leave the canvas as found",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "ghost-cursor-intent",
+      "prompt": "Add an 'Auth design' status node to the review area. Before adding it, signal what you're about to do so I can veto it if I disagree, then make the change.",
+      "expected_output": "Signals a create intent first with canvas_intent {action:signal, kind:\"create\", position, nodeType:\"status\", label, reason, confidence}, then creates the 'Auth design' node at that position with canvas_node {action:\"add\", type:\"status\", x, y, intentId}. Understands that a vetoed intent rejects its linked mutation. Treats signalling intent as the default before visible mutations rather than an optional step, and does not silently mutate.",
+      "assertions": [
+        {
+          "name": "signals-intent-first",
+          "description": "Calls canvas_intent {action:signal} with label/reason and a confidence in [0,1] before the visible mutation",
+          "type": "output_check"
+        },
+        {
+          "name": "links-mutation-to-intent",
+          "description": "Passes the returned intentId on canvas_node {action:add, type:\"status\", x, y, intentId} so the ghost settles into the real node",
+          "type": "output_check"
+        },
+        {
+          "name": "respects-veto",
+          "description": "Understands a vetoed intent rejects its linked mutation (\"Intent <id> was vetoed\") rather than treating signal as cosmetic, and clears/updates intent appropriately",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "standalone-surface-open-as-site",
+      "prompt": "Open the bar-chart graph node as a standalone full-page site for a screenshot, and also try to open the Excalidraw diagram node the same way. Tell me the correct surface URL for each.",
+      "expected_output": "For the graph/json-render node, uses the stable surface URL /api/canvas/surface/<id> which redirects to the full-viewport display=site viewer (reads surfaceUrl from the node, does not fabricate a path). Recognizes the hosted Excalidraw/ext-app node is NOT an open-as-site target (its surface route returns a clean 404 \u2014 it renders only with the in-canvas host bridge, and open-external refuses it with the same message) and does not claim a standalone tab will work. Describes the standalone surface as reflowing live on a window resize; does not claim host browsers leave a resized chart stale until reload, and does not prescribe a system browser as a workaround.",
+      "assertions": [
+        {
+          "name": "graph-site-surface-url",
+          "description": "Gives the graph node's /api/canvas/surface/<id> URL (which redirects to display=site, full viewport) from the node payload rather than fabricating one",
+          "type": "output_check"
+        },
+        {
+          "name": "extapp-not-open-as-site",
+          "description": "States the hosted Excalidraw/ext-app node is not an open-as-site target (clean 404; renders in-canvas only) instead of claiming a standalone tab works",
+          "type": "output_check"
+        },
+        {
+          "name": "no-stale-resize-claim",
+          "description": "Does not assert that host browsers fail to deliver live resize (current Codex builds do — the 0.4.6 pass saw a standalone graph reflow live with no reload); a system browser may be offered as a viewing preference, never as a resize workaround",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "in-view-placement-after-create",
+      "prompt": "The board already has a cluster of nodes from this morning, way off to the far right. Add a markdown summary of the incident and a status node for the follow-up, and make sure I can actually see them.",
+      "expected_output": "Places the new nodes near the human's attention (pinned/focused neighborhood or beside the last user-facing output) instead of trusting board-relative auto-placement on a spread-out board, then pans the camera: canvas_view {action:focus} for a single node, or canvas_view {action:fit, nodeIds:[...]} with exactly the new ids for the pair. Does not hand-compute the whole board's coordinates and does not fit the whole board to 'show' the new work — an outlier cluster would miniaturize everything.",
+      "assertions": [
+        {
+          "name": "ends-with-focus-or-fit",
+          "description": "Finishes with canvas_view {action:focus} (single node) or {action:fit} after creating the nodes, rather than leaving them off-camera",
+          "type": "output_check"
+        },
+        {
+          "name": "fit-targets-new-ids-only",
+          "description": "Passes exactly the new node ids to fit instead of fitting the whole board (a distant cluster would shrink everything)",
+          "type": "output_check"
+        },
+        {
+          "name": "no-whole-board-coordinate-math",
+          "description": "Places relative to the human's attention or uses create-then-arrange; does not hand-compute a full board layout in pixels",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "node-size-discipline",
+      "prompt": "Add a markdown write-up of the outage and a bar chart of the error counts. Keep them tight — I don't want huge tiles.",
+      "expected_output": "Omits width/height and takes the per-type defaults (markdown 640×420, graph 760×520) rather than passing small probe sizes for human-readable content. Uses strictSize:true only for a deliberately fixed small frame, not to dodge the floor. Reads the size back from the create result or the layout before any layout math, because the server clamps an undersized explicit frame UP to the per-type floor (markdown 360×180, graph 420×280) — the returned size can differ from what was requested.",
+      "assertions": [
+        {
+          "name": "uses-type-defaults",
+          "description": "Omits width/height (or passes a readable size) instead of guessing a frame for readable content",
+          "type": "output_check"
+        },
+        {
+          "name": "no-tiny-probe-sizes",
+          "description": "Does not create human-readable nodes at tiny probe sizes that the floor would silently raise",
+          "type": "output_check"
+        },
+        {
+          "name": "strict-size-only-when-deliberate",
+          "description": "Reaches for strictSize:true only for an intentionally fixed small frame, not as a way around the readability floor",
+          "type": "output_check"
+        },
+        {
+          "name": "reads-back-created-size",
+          "description": "Reads the actual created size from the create result / canvas_query layout before positioning or sizing anything else, rather than assuming the requested size was kept",
+          "type": "output_check"
+        }
+      ]
+    }
+  ]
+}
