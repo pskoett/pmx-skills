@@ -54,6 +54,8 @@ This plugin has no MCP servers, hooks, executable entry point, credentials, or c
 
 ### Starting a wiki
 
+Use [PMX Context Frame Example](https://github.com/pskoett/pmx-context-frame-example) as the reference knowledge-base structure: maintained knowledge in `wiki/`, source evidence in `raw/`, unprocessed intake in `inbox/`, and generated outputs in `artifacts/`. Its wiki includes navigation, a dated change log, product context, decisions, and testable assumptions. It is a template with placeholders, not a populated product dataset. The skill describes and links to it; its files are not bundled here.
+
 `knowledge-base-curator` includes its own bootstrap guidance. It first looks for an existing knowledge base in the selected workspace and reuses its conventions. If none exists, it confirms the destination and privacy expectations, then creates a minimal structure such as:
 
 ```text
@@ -63,6 +65,8 @@ wiki/
 ```
 
 Topic pages are created from actual source material, not empty templates. A `sources/` folder is optional and created only when retaining local source copies is authorized. No Obsidian, QMD, database, or pre-existing wiki is needed. The skill preserves sources, links claims to evidence, and avoids duplicate pages on repeated ingestion. Without file-writing access, it returns copyable Markdown instead of claiming it saved a wiki.
+
+Grow toward the reference structure only as needed. If the workspace already uses `raw/` for evidence, reuse it instead of adding a duplicate `sources/` folder. Neither the example's agent runbook nor its full folder hierarchy is required.
 
 ### HTML artifacts
 
