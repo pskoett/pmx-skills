@@ -1,6 +1,15 @@
 # PMX-Skills
 Product Management AI Skills
 
+## How to use these skills
+
+These skills support the context-first workflow described in Peter Skøtt Pedersen's Agent-Driven Product Management guides:
+
+1. [Agent-Driven Product Management: 101](https://medium.com/@peterskoett/agent-driven-product-management-101-f7d3e1da2719) - build a working context stack so an agent can reason across your product, goals, decisions, stakeholders, and active work.
+2. [Agent-Driven Product Management: 201](https://medium.com/@peterskoett/agent-driven-product-management-201-01e54c6b92ed) - install common skills for generic work, create your own skills for recurring workflows, evaluate them, and keep the portfolio focused.
+
+Start with useful context, add one skill for a recurring workflow, and automate only after that workflow works reliably. The bundled PM skills below provide reusable starting points; adapt them to your context and decision logic rather than treating their output as a substitute for judgment.
+
 ## Bundled PM skills
 
 | Skill | Purpose |
