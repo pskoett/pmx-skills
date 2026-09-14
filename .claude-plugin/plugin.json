@@ -1,0 +1,14 @@
+{
+  "name": "pmx-skills",
+  "displayName": "PMX Skills",
+  "version": "0.4.0",
+  "description": "Product management skills for discovery, prioritization, feedback, OKRs, business reviews, knowledge curation, writing, and visual artifacts.",
+  "author": {
+    "name": "Peter Skøtt Pedersen",
+    "url": "https://github.com/pskoett"
+  },
+  "homepage": "https://github.com/pskoett/pmx-skills",
+  "repository": "https://github.com/pskoett/pmx-skills",
+  "license": "MIT",
+  "keywords": ["product-management", "planning", "research", "writing", "visualization"]
+}

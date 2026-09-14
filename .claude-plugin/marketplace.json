@@ -1,0 +1,14 @@
+{
+  "name": "pmx-skills",
+  "description": "Product management skills for Claude Code.",
+  "owner": {
+    "name": "Peter Skøtt Pedersen",
+    "url": "https://github.com/pskoett"
+  },
+  "plugins": [
+    {
+      "name": "pmx-skills",
+      "source": "./"
+    }
+  ]
+}

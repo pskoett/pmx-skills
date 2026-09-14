@@ -50,6 +50,26 @@ Clone or copy the **complete package**, including `.agents/skills`, with symlink
 
 This plugin has no MCP servers, hooks, executable entry point, credentials, or client extensions. Loading the plugin does not authorize publishing files or accessing private accounts.
 
+## Claude Code plugin
+
+Claude Code uses its own plugin manifest and marketplace format. This repository provides both under `.claude-plugin/` while sharing the same root `skills/` directory as the portable Agent Plugin. No second copy of the skills is maintained.
+
+Install it from the repository-hosted marketplace:
+
+```bash
+claude plugin marketplace add pskoett/pmx-skills
+claude plugin install pmx-skills@pmx-skills
+```
+
+Claude Code exposes the bundled skills as `/pmx-skills:<skill-name>`. The catalog of optional upstream companions is `/pmx-skills:discovering-pmx-companion-skills`; those linked skills remain separate installs.
+
+For local development, validate and load the repository root:
+
+```bash
+claude plugin validate .
+claude --plugin-dir .
+```
+
 ### Examples
 
 - **First principles:** "We think we need a new onboarding tool. Challenge that assumption and suggest the smallest experiment that would tell us what to do."
