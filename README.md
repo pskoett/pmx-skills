@@ -3,7 +3,7 @@ Product Management AI Skills
 
 ## How to use these skills
 
-These skills support the context-first workflow described in Peter Skøtt Pedersen's Agent-Driven Product Management guides:
+These skills support the context-first workflow described in these articles:
 
 1. [Agent-Driven Product Management: 101](https://medium.com/@peterskoett/agent-driven-product-management-101-f7d3e1da2719) - build a working context stack so an agent can reason across your product, goals, decisions, stakeholders, and active work.
 2. [Agent-Driven Product Management: 201](https://medium.com/@peterskoett/agent-driven-product-management-201-01e54c6b92ed) - install common skills for generic work, create your own skills for recurring workflows, evaluate them, and keep the portfolio focused.
@@ -39,7 +39,7 @@ The linked skills remain in their original repositories and are not included in 
 
 ## Agent Plugin
 
-The repository root is also a skills-only [Agent Plugins 1.0.0](https://agent-plugins.org/specification) package named `pmx-skills`. Its [plugin.json](plugin.json) manifest targets the portable standard, not an Amp-specific TypeScript plugin API.
+The repository root is also a skills-only [Agent Plugins 1.0.0](https://agent-plugins.org/specification) package named `pmx-skills`. Its [plugin.json](plugin.json) manifest targets the portable standard.
 
 ```text
 plugin.json
