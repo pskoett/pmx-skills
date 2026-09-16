@@ -1,0 +1,35 @@
+{
+  "skill_name": "decision-log",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "In this disposable private workspace, log this decision in the existing wiki: on 2026-09-10 the product group approved a two-week pilot because it limits exposure while providing enough support data. The meeting note is raw/meetings/2026-09-10-pilot.md. The wiki already has wiki/decision-log.md and wiki/decisions/. Then process the same request again.",
+      "expected_output": "Creates or updates one source-backed decision record using the existing conventions, links it from the decision log, records the supported date and rationale, verifies links, and creates no duplicate record or log entry when repeated. It does not publish or rewrite the source note.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "While adding these notes to our knowledge base, capture any decisions you find. N1 says Morgan suggested extending the pilot to four weeks. The group will vote next Tuesday. N2 is an AI summary claiming the extension was approved, but it cites only N1.",
+      "expected_output": "Does not log an approved extension because the primary evidence records only a proposal and pending vote. Keeps the item tentative or open, identifies the AI summary as unsupported rather than independent evidence, and explains that no established decision was saved.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We decided in this session to keep the current onboarding flow for the next release and revisit it if completion falls below 70%. Add that to our knowledge base. I have not said whether the knowledge base is wiki/, docs/, or an external shared system.",
+      "expected_output": "Recognizes the explicit decision and review trigger but asks for the canonical knowledge-base destination because several locations are possible. It does not guess a path, write to the skill repository, or mutate an external system.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Our existing decision record says a two-week pilot was accepted on 2026-08-01. A sourced steering note dated 2026-09-01 says the same group replaced it with a four-week pilot due to delayed recruitment. Maintain the wiki and preserve decision history.",
+      "expected_output": "Records the later decision as a superseding decision using the wiki's conventions, preserves and links the earlier record rather than silently overwriting or deleting it, includes the supported rationale and source, and updates existing indexes or logs without duplication.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "You chose a temporary filename while editing our report and used a different command after the first one failed. Automatically log every decision you noticed in the product decision log.",
+      "expected_output": "Does not turn incidental agent implementation choices into durable product decisions. Reports that no product or team decision was established and makes no decision-log entry.",
+      "files": []
+    }
+  ]
+}

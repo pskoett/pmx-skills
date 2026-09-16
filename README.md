@@ -22,6 +22,7 @@ Start with useful context, add one skill for a recurring workflow, and automate 
 | [business-review](.agents/skills/business-review/SKILL.md) | Connect outcomes, learning, risks, and next-period decisions in a review or deck outline. |
 | [team-context-update](.agents/skills/team-context-update/SKILL.md) | Share relevant behind-the-scenes context without repeating the delivery board. |
 | [knowledge-base-curator](.agents/skills/knowledge-base-curator/SKILL.md) | Bootstrap or maintain a source-backed Markdown wiki. |
+| [decision-log](.agents/skills/decision-log/SKILL.md) | Capture established decisions in a wiki with rationale, consequences, and provenance. |
 | [visualization-critique](.agents/skills/visualization-critique/SKILL.md) | Review charts for accuracy, clarity, accessibility, and evidential limits. |
 | [product-planning-interview](.agents/skills/product-planning-interview/SKILL.md) | Elicit product needs, boundaries, risks, and success criteria before planning. |
 | [html-artifacts](.agents/skills/html-artifacts/SKILL.md) | Build portable HTML reports, comparisons, decks, maps, and local interactive artifacts. |
@@ -110,26 +111,6 @@ Grow toward the reference structure only as needed. If the workspace already use
 Example: "Turn these rollout options into an offline HTML decision one-pager with a comparison grid and milestone timeline. Check desktop, mobile, and print layouts. Do not publish it."
 
 The skill includes guidance for evidence integrity, safe text rendering, keyboard interaction, print/no-JavaScript fallbacks, and actual export verification. Browser rendering checks apply to generated artifacts; the bundled evaluation prompts are scenarios to run, not pre-rendered templates or a claim that all primitive types have been browser-tested.
-
-## Design and checks
-
-Created using Anthropic's [skill-creator guidance](https://github.com/anthropics/skills/tree/main/skills/skill-creator). `ghost-writer` generalizes an existing personal ghost skill's source-grounding, register selection, drafting, and editing workflow; its personal corpus and preset persona are intentionally excluded.
-
-Each PM workflow skill includes representative prompts and expected outcomes in `evals/evals.json`. These are regression scenarios for future skill runs, not a claim of benchmarked voice quality. Voice fidelity requires feedback from the person whose writing is being modeled.
-
-Feedback triage includes a [runnable synthetic source double and behavioral run guide](.agents/skills/feedback-triage/evals/README.md) for pagination, full-context reads, access failures, and supplied-only/no-tool boundaries. It runs through Python and records call traces; it does not connect real accounts or test an MCP transport. It does not replace running the remaining skill scenarios in representative host environments.
-
-Run file-writing evaluation scenarios only in disposable workspaces. For scenarios describing an existing wiki, provide synthetic index/topic/source fixtures matching the prompt before running the skill. Never use the skills repository or real private notes as an evaluation destination.
-
-To check the evaluation JSON syntax from the repository root:
-
-```bash
-for file in .agents/skills/*/evals/evals.json; do
-  python3 -m json.tool "$file" > /dev/null || exit 1
-done
-```
-
-This checks JSON syntax, not skill behavior or writing quality.
 
 ## License
 
